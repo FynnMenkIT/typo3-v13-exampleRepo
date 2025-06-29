@@ -1,0 +1,13 @@
+<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+
+<f:layout name="Default"/>
+
+<f:section name="Main">
+    <f:if condition="{f:cObject(typoscriptObjectPath: 'lib.hasContent', data: '{colPos: 0}')}">
+        <main role="main">
+            {f:cObject(typoscriptObjectPath: 'lib.dynamicContent', data: '{colPos: 0}')}
+        </main>
+    </f:if>
+</f:section>
+
+</html>

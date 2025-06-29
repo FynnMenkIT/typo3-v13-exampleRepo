@@ -1,0 +1,5 @@
+favicon:
+  name: 'TYPO3 Distribution'
+  svg: "%vite('assets/Image/Icon/favicon.svg')%"
+  png: "%vite('assets/Image/Icon/favicon.png')%"
+  touch: "%vite('assets/Image/Icon/favicon-touch.png')%"

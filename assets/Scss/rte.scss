@@ -1,0 +1,18 @@
+@use "variables";
+@font-face {
+    font-family: Share;
+    src: local("Share"), url("../Font/Share-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+:root {
+    font-family: Share, Arial, serif;
+    font-size: variables.$content-font-size;
+}
+
+p {
+    line-height: variables.$content-line-height;
+    margin: 0;
+}

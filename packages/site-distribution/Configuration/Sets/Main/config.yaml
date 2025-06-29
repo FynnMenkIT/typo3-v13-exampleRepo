@@ -1,0 +1,7 @@
+name: site-distribution/main
+label: Site distribution main set
+
+# Load TypoScript, TSconfig and settings from dependencies
+dependencies:
+  - typo3/fluid-styled-content
+  - typo3/seo-sitemap

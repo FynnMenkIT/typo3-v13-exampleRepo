@@ -1,0 +1,12 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Site\Distribution\:
+    resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
+
+  Site\Distribution\EventListener\ForceUidsOnImport:
+    tags: { name: event.listener }

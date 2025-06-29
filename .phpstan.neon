@@ -1,0 +1,9 @@
+parameters:
+  level: 6
+  paths:
+    - packages
+  scanDirectories:
+    - vendor/deployer/deployer
+  excludePaths:
+    - packages/some_path/*
+  ignoreErrors:

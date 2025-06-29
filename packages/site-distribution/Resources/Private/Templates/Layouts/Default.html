@@ -1,0 +1,25 @@
+<html
+    data-namespace-typo3-fluid="true"
+    xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+    xmlns:vac="http://typo3.org/ns/Praetorius/ViteAssetCollector/ViewHelpers"
+>
+<nav class="menu-container">
+    <f:link.page pageUid="{site.rootPageId}" class="logo" title="{f:translate(extensionName: 'site-distribution', key: 'site-distribution.welcome')}">
+        <core:icon identifier="site-logo" size="small" alternativeMarkupIdentifier="inline" />
+    </f:link.page>
+    <ul class="menu js-menu">
+        <f:for each="{mainNavigation}" as="item">
+            <f:render partial="Menu" arguments="{item}"/>
+        </f:for>
+    </ul>
+
+    <div class="made-with js-made-with"><!-- svg loader example --></div>
+</nav>
+
+<div class="content">
+    <f:render section="Main"/>
+</div>
+
+<vac:asset.vite entry="assets/app.js"/>
+
+</html>

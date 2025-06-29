@@ -1,0 +1,35 @@
+// Content related configuration
+@import './TypoScript/Setup/content.typoscript'
+
+// Configure Page of typeNum=0 (default)
+page = PAGE
+page {
+  meta {
+    viewport = width=device-width, initial-scale=1
+  }
+
+  #  Include inline labels to be used in JavaScript files:
+  inlineLanguageLabelFiles {
+    siteDistribution = EXT:site-distribution/Resources/Private/Language/locallang.xlf
+    siteDistribution.selectionPrefix = inline-labels
+    siteDistribution.stripFromSelectionName = inline-labels.
+  }
+
+  10 = PAGEVIEW
+  10 {
+    paths {
+      10 = EXT:site-distribution/Resources/Private/Templates/
+    }
+
+    dataProcessing {
+      // Configure main menu
+      10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+      10 {
+        expandAll = 1
+        levels = 2
+        includeSpacer = 1
+        as = mainNavigation
+      }
+    }
+  }
+}

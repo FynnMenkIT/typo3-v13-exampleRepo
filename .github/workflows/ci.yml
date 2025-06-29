@@ -1,0 +1,134 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-assets:
+    name: Build Assets
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js 18
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: npm ci --prefer-offline
+      - name: Build production assets
+        run: npm run build:production
+      - name: Upload built assets
+        uses: actions/upload-artifact@v4
+        with:
+          name: Site_Assets
+          path: ./packages/site-distribution/Resources/Public
+
+  composer-install:
+    name: Composer Install
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+      - name: Install Composer dependencies
+        uses: ramsey/composer-install@v3
+        with:
+          composer-options: --ignore-platform-reqs
+      - name: Upload vendor
+        uses: actions/upload-artifact@v4
+        with:
+          name: Site_Vendor
+          path: ./vendor
+
+  phpstan:
+    name: PHPStan Analyse
+    runs-on: ubuntu-latest
+    needs: composer-install
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+      - name: Download vendor
+        uses: actions/download-artifact@v4
+        with:
+          name: Site_Vendor
+          path: ./vendor
+      - name: Run PHPStan
+        run: ./vendor/bin/phpstan analyse -c .phpstan.neon --no-progress
+
+  php-cs-fixer:
+    name: PHP CS Fixer
+    runs-on: ubuntu-latest
+    needs: composer-install
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+      - name: Download vendor
+        uses: actions/download-artifact@v4
+        with:
+          name: Site_Vendor
+          path: ./vendor
+      - name: Run PHP CS Fixer
+        run: ./vendor/bin/php-cs-fixer fix --dry-run --diff
+
+  deploy-staging:
+    name: Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: [phpstan, php-cs-fixer]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+      - name: Download vendor
+        uses: actions/download-artifact@v4
+        with:
+          name: Site_Vendor
+          path: ./vendor
+      - name: Add SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Deploy to Staging
+        run: |
+          # Beispiel: ./vendor/bin/dep deploy -vvv staging
+          echo "Bitte aktiviere den Deployer-Befehl und konfiguriere deploy.yaml -> hosts -> staging"
+          ./vendor/bin/dep --version
+
+  deploy-production:
+    name: Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [phpstan, php-cs-fixer]
+    if: startsWith(github.ref, 'refs/tags/')
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.2
+      - name: Download vendor
+        uses: actions/download-artifact@v4
+        with:
+          name: Site_Vendor
+          path: ./vendor
+      - name: Add SSH key
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Deploy to Production
+        run: |
+          # Beispiel: ./vendor/bin/dep deploy -vvv production
+          echo "Bitte aktiviere den Deployer-Befehl und konfiguriere deploy.yaml -> hosts -> production"
+          ./vendor/bin/dep --version

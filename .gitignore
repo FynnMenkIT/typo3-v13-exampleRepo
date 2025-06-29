@@ -1,0 +1,49 @@
+# IDE
+/.idea
+/.nbproject
+/.vscode
+# Package Manager
+/.npm
+/node_modules
+/vendor
+# TYPO3
+/var/*
+/public/*
+!/public/.htaccess
+/config/system/settings.php
+/.php-cs-fixer.cache
+# Vite generated files in all local packages
+/packages/*/Resources/Public/Vite
+# DDEV - ignore files created by "ddev get s2b/ddev-vite-sidecar"
+/.ddev/addon-metadata/ddev-vite-sidecar
+/.ddev/vite/
+/.ddev/commands/web/vite
+/.ddev/config.vite.yaml
+/.ddev/web-build/Dockerfile.vite
+/.ddev/apache/vite.conf
+/.ddev/nginx_full/vite.conf
+# DDEV - ignore files created by "ddev get ddev/ddev-cron"
+/.ddev/addon-metadata/ddev-cron
+/.ddev/web-build/Dockerfile.ddev-cron
+/.ddev/web-build/cron.conf
+/.ddev/web-build/time.cron.example
+# Weitere empfohlene Ignorierungen für TYPO3-Projekte
+/public/_assets/
+/public/typo3temp/
+/public/fileadmin/_temp_/
+# Lokale Uploads (optional, falls nicht versioniert werden sollen)
+/public/fileadmin/user_upload/
+# Systemdateien
+.DS_Store
+Thumbs.db
+# Umgebungs-/Konfigurationsdateien
+.env
+.env.*
+# Logdateien
+*.log
+# Sonstiges
+*.bak
+*.swp
+*.swo
+# TYPO3 Install Tool
+/public/typo3/install.php
