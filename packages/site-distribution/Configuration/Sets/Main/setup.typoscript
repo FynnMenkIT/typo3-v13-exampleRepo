@@ -1,5 +1,7 @@
 // Content related configuration
 @import './TypoScript/Setup/content.typoscript'
+@import './TypoScript/Setup/headless.typoscript'
+@import './TypoScript/Setup/mask_elements.typoscript'
 
 // Configure Page of typeNum=0 (default)
 page = PAGE

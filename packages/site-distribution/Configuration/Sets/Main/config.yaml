@@ -5,3 +5,4 @@ label: Site distribution main set
 dependencies:
   - typo3/fluid-styled-content
   - typo3/seo-sitemap
+  - friendsoftypo3/headless

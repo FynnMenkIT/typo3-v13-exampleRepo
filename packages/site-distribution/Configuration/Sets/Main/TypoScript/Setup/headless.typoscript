@@ -1,0 +1,18 @@
+# Headless-Konfiguration für TYPO3
+
+# Setzt die Standardausgabe auf JSON für spezielle typeNum
+ajaxApi = PAGE
+ajaxApi {
+  typeNum = 1533906440
+  config {
+    disableAllHeaderCode = 1
+    additionalHeaders = Content-Type: application/json
+    admPanel = 0
+    xhtml_cleaning = 0
+    debug = 0
+  }
+  10 = TYPO3\CMS\Headless\Page\JsonRenderer
+}
+
+# Optional: Standard-Page auf Headless umstellen (nur für reine API-Projekte)
+# page < ajaxApi

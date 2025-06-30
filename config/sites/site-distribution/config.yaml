@@ -1,11 +1,20 @@
 base: /
 dependencies:
   - site-distribution/main
+  - mask/mask
+  - friendsoftypo3/headless
+  - typo3/fluid-styled-content
+  - typo3/fluid-styled-content-css
+  - typo3/seo-sitemap
+  - typo3/felogin
+  - typo3/form
 errorHandling:
   -
     errorCode: 404
     errorHandler: Page
     errorContentSource: 't3://page?uid=4'
+frontendBase: ''
+headless: 1
 languages:
   -
     title: Deutsch
@@ -28,4 +37,5 @@ routeEnhancers:
     map:
       /: 0
       sitemap.xml: 1533906435
+      api: 1533906440
 websiteTitle: 'TYPO3 Site Distribution'
