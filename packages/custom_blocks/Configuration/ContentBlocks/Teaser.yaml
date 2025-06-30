@@ -1,0 +1,16 @@
+# Content Blocks: Teaser
+custom_blocks.teaser =
+  identifier = teaser
+  title = Teaser
+  description = A simple teaser block migrated from MASK
+  icon = teaser
+  fields {
+    title = input
+    subtitle = input
+    bodytext = text
+    link = link
+    image = image
+  }
+  template = EXT:custom_blocks/Resources/Private/Templates/ContentBlocks/Teaser.html
+  layout = EXT:custom_blocks/Resources/Private/Layouts/Default.html
+  partialRootPaths.10 = EXT:custom_blocks/Resources/Private/Partials/ContentBlocks/

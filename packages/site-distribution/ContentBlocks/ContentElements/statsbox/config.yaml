@@ -1,0 +1,24 @@
+name: site-distribution/statsbox
+# Content Block for Statsbox, independent from MASK
+# Description: Accessible statsbox for key figures, facts, milestones
+#
+typeName: site_distribution_statsbox
+group: default
+fields:
+  - identifier: headline
+    type: Text
+    required: true
+    description: Headline for the statsbox (rendered as <h2>)
+  - identifier: items
+    type: Collection
+    fields:
+      - identifier: number
+        type: Text
+        description: Number (displayed as <span> with ARIA label)
+      - identifier: label
+        type: Text
+        description: Label (visible and for screenreader)
+      - identifier: description
+        type: Textarea
+        description: Optional description (for screenreader)
+template: templates/frontend.html

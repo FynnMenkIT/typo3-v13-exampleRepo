@@ -1,0 +1,13 @@
+# Content Blocks: Accordion
+content_blocks.accordion =
+  identifier = accordion
+  title = Accordion
+  description = Accessible accordion block migrated from MASK
+  icon = accordion
+  fields {
+    title = input
+    items = inline
+  }
+  template = EXT:content_blocks/Resources/Private/Templates/ContentBlocks/Accordion.html
+  layout = EXT:content_blocks/Resources/Private/Layouts/Default.html
+  partialRootPaths.10 = EXT:content_blocks/Resources/Private/Partials/ContentBlocks/

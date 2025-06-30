@@ -1,0 +1,22 @@
+name: site-distribution/accordion
+# Content Block for Accordion, independent from MASK
+# Description: Accessible accordion for structured content, FAQs, long texts
+#
+typeName: site_distribution_accordion
+group: default
+fields:
+  - identifier: headline
+    type: Text
+    required: true
+    description: Headline for the accordion (rendered as <h2>)
+  - identifier: items
+    type: Collection
+    fields:
+      - identifier: title
+        type: Text
+        description: Panel title
+      - identifier: bodytext
+        type: Textarea
+        enableRichtext: true
+        description: Panel content (RTE)
+template: templates/frontend.html

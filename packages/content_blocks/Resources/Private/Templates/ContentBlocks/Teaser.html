@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+<!-- Teaser Content Block Template -->
+<div class="c-teaser">
+    <f:if condition="{data.title}">
+        <h2 class="c-teaser__title">{data.title}</h2>
+    </f:if>
+    <f:if condition="{data.subtitle}">
+        <h3 class="c-teaser__subtitle">{data.subtitle}</h3>
+    </f:if>
+    <f:if condition="{data.bodytext}">
+        <div class="c-teaser__bodytext">{data.bodytext}</div>
+    </f:if>
+    <f:if condition="{data.image}">
+        <img src="{data.image}" alt="" class="c-teaser__image" />
+    </f:if>
+    <f:if condition="{data.link}">
+        <a href="{data.link}" class="c-teaser__link">Read more</a>
+    </f:if>
+</div>
+</html>

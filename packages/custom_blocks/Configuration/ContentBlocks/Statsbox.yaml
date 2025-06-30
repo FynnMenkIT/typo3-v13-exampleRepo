@@ -1,0 +1,13 @@
+# Content Blocks: Statsbox
+custom_blocks.statsbox =
+  identifier = statsbox
+  title = Statsbox
+  description = Statsbox block migrated from MASK
+  icon = statsbox
+  fields {
+    title = input
+    items = inline
+  }
+  template = EXT:custom_blocks/Resources/Private/Templates/ContentBlocks/Statsbox.html
+  layout = EXT:custom_blocks/Resources/Private/Layouts/Default.html
+  partialRootPaths.10 = EXT:custom_blocks/Resources/Private/Partials/ContentBlocks/

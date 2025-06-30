@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+<!-- CTA Content Block Template -->
+<div class="c-cta">
+    <f:if condition="{data.title}">
+        <h2 class="c-cta__title">{data.title}</h2>
+    </f:if>
+    <f:if condition="{data.bodytext}">
+        <div class="c-cta__bodytext">{data.bodytext}</div>
+    </f:if>
+    <f:if condition="{data.link}">
+        <a href="{data.link}" class="c-cta__link">{data.link}</a>
+    </f:if>
+</div>
+</html>

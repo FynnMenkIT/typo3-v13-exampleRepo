@@ -1,0 +1,22 @@
+name: site-distribution/cta
+# Content Block for CTA, independent from MASK
+# Description: Accessible CTA with headline, text, link, aria-label
+#
+typeName: site_distribution_cta
+group: default
+fields:
+  - identifier: headline
+    type: Text
+    required: true
+    description: Headline for the CTA box (rendered as <h2>)
+  - identifier: text
+    type: Textarea
+    enableRichtext: true
+    description: Text for the CTA box (HTML allowed)
+  - identifier: link
+    type: Link
+    description: Link (URL, target, rel)
+  - identifier: aria_label
+    type: Text
+    description: ARIA label for the link (optional)
+template: templates/frontend.html

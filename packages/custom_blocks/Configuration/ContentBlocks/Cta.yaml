@@ -1,0 +1,14 @@
+# Content Blocks: CTA
+custom_blocks.cta =
+  identifier = cta
+  title = Call to Action
+  description = Call to Action block migrated from MASK
+  icon = cta
+  fields {
+    title = input
+    bodytext = text
+    link = link
+  }
+  template = EXT:custom_blocks/Resources/Private/Templates/ContentBlocks/Cta.html
+  layout = EXT:custom_blocks/Resources/Private/Layouts/Default.html
+  partialRootPaths.10 = EXT:custom_blocks/Resources/Private/Partials/ContentBlocks/

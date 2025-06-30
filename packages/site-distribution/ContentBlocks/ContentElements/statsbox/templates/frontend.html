@@ -1,0 +1,21 @@
+<f:layout name="Default" />
+<f:section name="Main">
+    <section class="c-statsbox" aria-label="Statistik-Box">
+        <f:if condition="{data.headline}">
+            <h2 class="c-statsbox__headline">{data.headline}</h2>
+        </f:if>
+        <f:if condition="{data.items}">
+            <ul class="c-statsbox__list" role="list">
+                <f:for each="{data.items}" as="item">
+                    <li class="c-statsbox__item" tabindex="0">
+                        <span class="c-statsbox__number" aria-label="{item.label} Wert: {item.number}">{item.number}</span>
+                        <span class="c-statsbox__label">{item.label}</span>
+                        <f:if condition="{item.description}">
+                            <span class="c-statsbox__desc visually-hidden">{item.description}</span>
+                        </f:if>
+                    </li>
+                </f:for>
+            </ul>
+        </f:if>
+    </section>
+</f:section>

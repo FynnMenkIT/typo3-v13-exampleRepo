@@ -1,0 +1,16 @@
+name: site-distribution/teaser
+# Content Block for Teaser, independent from MASK
+# Description: Accessible teaser with headline and bodytext, for parallel use
+#
+typeName: site_distribution_teaser
+group: default
+fields:
+  - identifier: title
+    type: Text
+    required: true
+    description: Headline for the teaser (rendered as <h2>)
+  - identifier: bodytext
+    type: Textarea
+    enableRichtext: true
+    description: Bodytext for the teaser (HTML allowed)
+template: templates/frontend.html

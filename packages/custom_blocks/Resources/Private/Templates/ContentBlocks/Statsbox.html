@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:f="http://typo3.org/ns/TYPO3/Fluid/ViewHelpers">
+<!-- Statsbox Content Block Template -->
+<div class="c-statsbox">
+    <f:if condition="{data.title}">
+        <h2 class="c-statsbox__title">{data.title}</h2>
+    </f:if>
+    <f:for each="{data.items}" as="item">
+        <div class="c-statsbox__item">
+            <span class="c-statsbox__value">{item.value}</span>
+            <span class="c-statsbox__label">{item.label}</span>
+        </div>
+    </f:for>
+</div>
+</html>

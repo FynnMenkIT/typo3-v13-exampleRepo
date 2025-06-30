@@ -1,0 +1,13 @@
+<f:layout name="Default" />
+<f:section name="Main">
+    <article class="c-teaser" role="region" aria-label="Teaser">
+        <f:if condition="{data.title}">
+            <h2 class="c-teaser__headline">{data.title}</h2>
+        </f:if>
+        <f:if condition="{data.bodytext}">
+            <div class="c-teaser__bodytext">
+                {data.bodytext -> f:format.html()}
+            </div>
+        </f:if>
+    </article>
+</f:section>
