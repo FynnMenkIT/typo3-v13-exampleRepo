@@ -1,123 +1,159 @@
-# TYPO3 Headless Project
+# TYPO3 Distribution – Modern Demo & Proof of Concept
 
-This project is based on TYPO3 and prepared for use as a headless CMS. Content is delivered as a JSON API, and the frontend is built with modern frameworks like Vue.js.
+This project is a modern, clean, and accessible TYPO3 v13+ distribution, designed as a proof-of-concept for professional use and as a freelancer reference. It demonstrates best practices for parallel operation of MASK and Content Blocks, a Vue.js frontend, and automated demo content import. No boilerplate branding – all documentation and code are tailored for this project.
+
+---
 
 ## Quickstart
 
-### Backend (TYPO3, DDEV)
+**Recommended:** Use the following command to set up the project with all demo content, page tree, and assets:
 
-1. Start DDEV and install dependencies:
+```bash
+ddev typo3-init
+```
+
+> **Note:** [ddev](https://ddev.readthedocs.io/en/stable/) must be installed on your host system. For details, see the [official documentation](https://ochorocho.gitlab.io/typo3-distribution-docs/).
+
+---
+
+## Features
+- TYPO3 v13, Composer-based, clean project structure
+- Parallel use of MASK and Content Blocks (no field/key overlap)
+- Modern Content Blocks (teaser, cta, statsbox, accordion) with independent fields
+- Vue.js frontend scaffolded and integrated
+- All RTE fields correctly configured and rendered
+- Automated demo content import (page tree, all demo elements on page id 6)
+- Best practices for accessibility, code quality, and maintainability
+
+---
+
+## Manual Setup (Alternative)
+
+1. **Start and install:**
    ```bash
    ddev start
    ddev composer install
-   ```
-2. Run TYPO3 setup:
-   ```bash
    ddev typo3 setup
    ```
-3. Install the headless extension (already included):
+2. **Prepare and build frontend:**
    ```bash
-   ddev composer require friendsoftypo3/headless
+   ddev npm install
+   ddev npm run build:production
    ```
-4. Activate the extension in the TYPO3 backend.
-5. The headless API is available at `/?type=1533906440`.
+3. **Initialize data (page tree, demo content, assets):**
+   ```bash
+   ddev typo3 extension:setup
+   ddev composer dumpautoload
+   ```
+4. **Show project info:**
+   ```bash
+   ddev describe
+   ```
 
-### Frontend (Vue.js + Vite)
+---
 
-The frontend is located in the `frontend/` folder and uses Vue 3 + Vite. Start development with:
+## Frontend Development
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+- All assets (SCSS, JS, images, fonts) are in `assets/` and processed by [Vite.js](https://vitejs.dev/).
+- Output is stored in `packages/site-distribution/Resources/Public/`.
 
-The app loads data directly from TYPO3 Headless (`/?type=1533906440`).
+**NPM Scripts:**
+- Watch for changes: `ddev npm run watch`
+- Build for development: `ddev npm run build:development`
+- Build for production: `ddev npm run build:production`
 
-## Headless Configuration
+**Vite Add-on:**
+- Already installed after `ddev typo3-init`.
+- Run dev server: `ddev vite`
 
-- The file `packages/site-distribution/Configuration/Sets/Main/headless.typoscript` provides the JSON output.
-- The headless configuration is included in `setup.typoscript`.
+---
 
-## Project Structure
+## Demo Content & Data Import
 
-- All local extensions/packages are in the `packages` folder. Require them via `composer req vendor/package:@dev`.
-- `assets` contains all SCSS, JavaScript, images, and fonts, processed by [Vite.js](https://vitejs.dev/) and output to `packages/site-distribution/Resources/Public/`.
+- The setup script (`ddev typo3-init`) automatically imports the demo page tree and all demo content elements (MASK & Content Blocks) for a ready-to-use backend and frontend demo.
+- Demo content is inserted via SQL/ddev/mysql and is visible on page id 6 after setup.
+- If you need to re-import demo data, use the provided SQL or rerun the setup script.
 
-## NPM Scripts / Vite.js
+---
 
-- Compile SCSS to CSS (`assets/Scss`)
-- Bundle JavaScript (`assets/JavaScript`)
-- Copy images (`assets/Image`) and fonts (`assets/Fonts`) to the public folder of EXT:site-distribution
+## MASK & Content Blocks: Parallel Operation & Migration
 
-Watch for changes in JS/SCSS files:
-```bash
-ddev npm run watch
-```
+- **MASK** remains for legacy/custom elements. Templates: `packages/mask_elements/Resources/Private/Templates/ContentElements/`.
+- **Content Blocks** are defined in `packages/site-distribution/ContentBlocks/ContentElements/` with YAML and Fluid templates.
+- Both systems run in parallel, with strictly separated field names and database columns (no overlap, no data conflicts).
+- All Content Blocks use their own field names and tables (see YAML configs and SQL structure).
+- RTE fields are always `type: Textarea` + `enableRichtext: true` and rendered with `{data.field -> f:format.html()}`.
+- For migration, see the [official Content Blocks migration documentation](https://docs.typo3.org/p/friendsoftypo3/content-blocks/main/en-us/Migration/Mask.html).
 
-Build JS/CSS for development (not minified):
-```bash
-ddev npm run build:development
-```
+---
 
-Build JS/CSS for production:
-```bash
-ddev npm run build:production
-```
+## Best Practices & Troubleshooting
+
+- **No boilerplate branding:** All code and docs are custom, not a generic starter.
+- **Accessibility:** All templates use semantic HTML and ARIA where needed.
+- **Frontend:** Modern toolchain (Vite, SCSS, JS, Vue.js), see `package.json` for dependencies.
+- **Backend:** Clean TCA, TypoScript, and YAML configs. No field overlap between MASK and Content Blocks.
+- **RTE fields:** Always check for correct configuration and rendering.
+- **Demo content:** If demo elements are missing, check the setup script and SQL import.
+- **Extension setup:** Use `ddev typo3 extension:setup` and `ddev composer dumpautoload` after changes.
+
+---
 
 ## Quality Assurance
 
-Run PHPStan:
-```bash
-ddev exec ./vendor/bin/phpstan analyse -c .phpstan.neon --no-progress
-```
+- Run PHPStan:
+  ```bash
+  ddev exec ./vendor/bin/phpstan analyse -c .phpstan.neon --no-progress
+  ```
+- Run PHP CS Fixer:
+  ```bash
+  ddev exec ./vendor/bin/php-cs-fixer fix --dry-run --diff
+  ```
 
-Run PHP CS Fixer:
-```bash
-ddev exec ./vendor/bin/php-cs-fixer fix --dry-run --diff
-```
+---
 
 ## Deployment
 
-`deploy.yaml` contains an example configuration for [Deployer](https://deployer.org/).
-Run deployer locally (for testing):
-```bash
-./vendor/bin/dep deploy -vvv staging
-```
+- Example config: `deploy.yaml` (for [Deployer](https://deployer.org/))
+- Run locally for testing:
+  ```bash
+  ./vendor/bin/dep deploy -vvv staging
+  ```
+
+---
 
 ## Scheduler CronJob
 
-To run a CronJob in ddev, the plugin "ddev-cron" is required. Install it with:
-```bash
-ddev get ddev/ddev-cron
-```
-If xdebug is enabled, the scheduler CronJob is not executed.
+- The [ddev-cron](https://github.com/ddev/ddev-cron) add-on is installed during `ddev typo3-init`.
+- To install manually: `ddev get ddev/ddev-cron`
+- If xdebug is enabled, the scheduler CronJob is not executed.
+- Run the scheduler manually:
+  ```bash
+  ddev typo3-scheduler # -f or --force to run it while xdebug is enabled
+  ```
 
-Run the scheduler manually:
-```bash
-ddev typo3-scheduler # -f or --force to run it while xdebug is enabled
-```
+---
+
+## Mail & Database GUIs
+
+- **Mailpit:** Start with `ddev launch -m` to access emails sent by TYPO3.
+- **Database GUIs:**
+  - [phpMyAdmin](https://www.phpmyadmin.net/): `ddev get ddev/ddev-phpmyadmin`
+  - [Adminer](https://www.adminer.org/): `ddev get ddev/ddev-adminer`
+
+---
 
 ## External Documentation
 
 - [TYPO3 Documentation](https://docs.typo3.org/)
 - [DDEV Documentation](https://ddev.readthedocs.io/en/stable/)
-  - [Vite Add-on](https://github.com/s2b/ddev-vite-sidecar)
+- [Vite Add-on](https://github.com/s2b/ddev-vite-sidecar)
 - [Vite.js](https://vitejs.dev/)
 - [Deployer](https://deployer.org/docs/7.x/basics)
+- [Content Blocks Migration](https://docs.typo3.org/p/friendsoftypo3/content-blocks/main/en-us/Migration/Mask.html)
+
+---
 
 ## License
 
 GPL-2.0 or later
-
-# Best Practices for MASK Content Elements
-
-- Custom templates for content elements are in `EXT:mask_elements/Resources/Private/Templates/ContentElements/`.
-- Custom partials/layouts for reuse and structure are in `Partials/` and `Layouts/`.
-- TypoScript includes the template root paths (see `mask_elements.typoscript`).
-- Generated MASK templates in the `Mask/Frontend` folder are not modified.
-- `mask.json` is the central definition for fields, TCA, and SQL.
-- Fluid templates use semantic HTML and accessibility (e.g., ARIA attributes, meaningful headings).
-- Migration to Content Blocks is easy due to clear field names and structure.
-
-See `mask.json` and `Templates/ContentElements/Teaser.html` for a Teaser element example.
