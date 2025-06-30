@@ -1,0 +1,18 @@
+<f:layout name="Default" />
+<f:section name="Main">
+    <section class="c-accordion" aria-label="Accordion">
+        <f:if condition="{data.tx_mask_accordion_headline}">
+            <h2 class="c-accordion__headline">{data.tx_mask_accordion_headline}</h2>
+        </f:if>
+        <f:for each="{data.tx_mask_accordion_items}" as="data_item" iteration="iter">
+            <div class="c-accordion__item">
+                <button class="c-accordion__trigger" aria-expanded="false" aria-controls="accordion-panel-{iter.index}">
+                    {data_item.tx_mask_title}
+                </button>
+                <div class="c-accordion__panel" id="accordion-panel-{iter.index}" role="region" aria-labelledby="accordion-trigger-{iter.index}">
+                    {data_item.tx_mask_bodytext -> f:format.html()}
+                </div>
+            </div>
+        </f:for>
+    </section>
+</f:section>

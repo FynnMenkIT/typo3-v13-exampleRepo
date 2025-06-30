@@ -1,0 +1,16 @@
+<f:layout name="Default" />
+<f:section name="Main">
+    <section class="c-cta" aria-label="Call to Action">
+        <f:if condition="{data.tx_mask_cta_headline}">
+            <h2 class="c-cta__headline">{data.tx_mask_cta_headline}</h2>
+        </f:if>
+        <f:if condition="{data.tx_mask_cta_text}">
+            <div class="c-cta__text">{data.tx_mask_cta_text -> f:format.html()}</div>
+        </f:if>
+        <f:if condition="{data.tx_mask_cta_link}">
+            <a class="c-cta__link" href="{data.tx_mask_cta_link}" rel="noopener" target="_blank" aria-label="{data.tx_mask_cta_aria_label}">
+                <span>Mehr erfahren</span>
+            </a>
+        </f:if>
+    </section>
+</f:section>

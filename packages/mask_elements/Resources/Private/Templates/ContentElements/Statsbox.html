@@ -1,0 +1,21 @@
+<f:layout name="Default" />
+<f:section name="Main">
+    <section class="c-statsbox" aria-label="Statistik-Box">
+        <f:if condition="{data.tx_mask_statsbox_headline}">
+            <h2 class="c-statsbox__headline">{data.tx_mask_statsbox_headline}</h2>
+        </f:if>
+        <f:if condition="{data.tx_mask_statsbox_items}">
+            <ul class="c-statsbox__list" role="list">
+                <f:for each="{data.tx_mask_statsbox_items}" as="data_item">
+                    <li class="c-statsbox__item" tabindex="0">
+                        <span class="c-statsbox__number" aria-label="{data_item.tx_mask_label} Wert: {data_item.tx_mask_number}">{data_item.tx_mask_number}</span>
+                        <span class="c-statsbox__label">{data_item.tx_mask_label}</span>
+                        <f:if condition="{data_item.tx_mask_description}">
+                            <span class="c-statsbox__desc visually-hidden">{data_item.tx_mask_description}</span>
+                        </f:if>
+                    </li>
+                </f:for>
+            </ul>
+        </f:if>
+    </section>
+</f:section>

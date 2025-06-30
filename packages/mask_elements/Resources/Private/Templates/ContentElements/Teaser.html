@@ -1,0 +1,14 @@
+<f:layout name="Default" />
+hi
+<f:section name="Main">
+    <article class="c-teaser" role="region" aria-label="Teaser">
+        <f:if condition="{data.tx_mask_headline}">
+            <h2 class="c-teaser__headline">{data.tx_mask_headline}</h2>
+        </f:if>
+        <f:if condition="{data.tx_mask_bodytext}">
+            <div class="c-teaser__bodytext">
+                {data.tx_mask_bodytext}
+            </div>
+        </f:if>
+    </article>
+</f:section>
