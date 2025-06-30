@@ -1,4 +1,5 @@
 <?php
+
 // Registrierung des MASK-Teaser-Elements als neues CType
 defined('TYPO3') or die();
 

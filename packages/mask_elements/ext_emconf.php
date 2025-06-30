@@ -1,4 +1,5 @@
 <?php
+
 $EM_CONF['mask_elements'] = [
     'title' => 'MASK Elements Demo',
     'description' => 'Demo-Extension für MASK-Inhaltselemente (Migration zu Content Blocks)',
