@@ -1,4 +1,4 @@
-# typo3-v13-introduction
+# typo3-v13-exampleRepo
 
 Modern TYPO3 v13+ demo distribution with Content Blocks, MASK, and automated demo content import. Clean, accessible, and best-practice setup for agencies and freelancers.
 
@@ -9,8 +9,8 @@ Modern TYPO3 v13+ demo distribution with Content Blocks, MASK, and automated dem
 
 ---
 
-Author: [Fynn Menk](https://github.com/fynnmenk)
-Repository: https://github.com/fynnmenk/typo3-v13-introduction
+Author: [Fynn Menk](https://github.com/FynnMenkIT)
+Repository: https://github.com/FynnMenkIT/typo3-v13-exampleRepo
 
 ---
 

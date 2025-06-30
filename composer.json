@@ -1,10 +1,10 @@
 {
-	"name": "fynnmenk/typo3-v13-introduction",
+	"name": "fynnmenkit/typo3-v13-examplerepo",
 	"description": "Modern TYPO3 v13+ demo distribution with Content Blocks, MASK, and automated demo content import. Clean, accessible, and best-practice setup for agencies and freelancers.",
 	"license": "GPL-2.0-or-later",
 	"type": "project",
-	"homepage": "https://github.com/fynnmenk/typo3-v13-introduction",
-	"repository": "https://github.com/fynnmenk/typo3-v13-introduction.git",
+	"homepage": "https://github.com/FynnMenkIT/typo3-v13-exampleRepo",
+	"repository": "https://github.com/FynnMenkIT/typo3-v13-exampleRepo.git",
 	"authors": [
 		{"name": "Fynn Menk", "email": "your@email.com"}
 	],

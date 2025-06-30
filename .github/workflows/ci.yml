@@ -61,7 +61,7 @@ jobs:
           name: Site_Vendor
           path: ./vendor
       - name: Run PHPStan
-        run: ./vendor/bin/phpstan analyse -c .phpstan.neon --no-progress
+        run: php vendor/bin/phpstan analyse -c .phpstan.neon --no-progress
 
   php-cs-fixer:
     name: PHP CS Fixer
@@ -79,7 +79,7 @@ jobs:
           name: Site_Vendor
           path: ./vendor
       - name: Run PHP CS Fixer
-        run: ./vendor/bin/php-cs-fixer fix --dry-run --diff
+        run: php vendor/bin/php-cs-fixer fix --dry-run --diff
 
   deploy-staging:
     name: Deploy to Staging
