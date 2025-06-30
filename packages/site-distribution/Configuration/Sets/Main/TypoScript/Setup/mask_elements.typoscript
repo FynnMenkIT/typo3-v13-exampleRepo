@@ -1,4 +1,4 @@
-# Zentrale MASK-ContentElement-Konfiguration mit eigenen Pfaden
+# Central MASK content element configuration with custom paths
 lib.maskContentElement = FLUIDTEMPLATE
 lib.maskContentElement {
   dataProcessing {

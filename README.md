@@ -1,30 +1,30 @@
-# TYPO3 Headless Projekt
+# TYPO3 Headless Project
 
-Dieses Projekt basiert auf TYPO3 und ist für die Nutzung als Headless-CMS vorbereitet. Die Ausgabe erfolgt als JSON-API, das Frontend wird mit modernen Frameworks wie Vue.js realisiert.
+This project is based on TYPO3 and prepared for use as a headless CMS. Content is delivered as a JSON API, and the frontend is built with modern frameworks like Vue.js.
 
 ## Quickstart
 
 ### Backend (TYPO3, DDEV)
 
-1. DDEV starten und Abhängigkeiten installieren:
+1. Start DDEV and install dependencies:
    ```bash
-ddev start
-ddev composer install
+   ddev start
+   ddev composer install
    ```
-2. TYPO3 Setup ausführen:
+2. Run TYPO3 setup:
    ```bash
-ddev typo3 setup
+   ddev typo3 setup
    ```
-3. Headless-Extension installieren (bereits enthalten):
+3. Install the headless extension (already included):
    ```bash
-ddev composer require friendsoftypo3/headless
+   ddev composer require friendsoftypo3/headless
    ```
-4. Extension im TYPO3-Backend aktivieren.
-5. Die Headless-Ausgabe ist unter `/?type=1533906440` erreichbar.
+4. Activate the extension in the TYPO3 backend.
+5. The headless API is available at `/?type=1533906440`.
 
 ### Frontend (Vue.js + Vite)
 
-Das Frontend befindet sich im Ordner `frontend/` und basiert auf Vue 3 + Vite. Starte die Entwicklung mit:
+The frontend is located in the `frontend/` folder and uses Vue 3 + Vite. Start development with:
 
 ```bash
 cd frontend
@@ -32,103 +32,92 @@ npm install
 npm run dev
 ```
 
-Die App lädt Daten direkt aus TYPO3 Headless (`/?type=1533906440`).
+The app loads data directly from TYPO3 Headless (`/?type=1533906440`).
 
-## Headless-Konfiguration
+## Headless Configuration
 
-- Die Datei `packages/site-distribution/Configuration/Sets/Main/headless.typoscript` stellt die JSON-Ausgabe bereit.
-- In `setup.typoscript` ist die Headless-Konfiguration bereits eingebunden.
+- The file `packages/site-distribution/Configuration/Sets/Main/headless.typoscript` provides the JSON output.
+- The headless configuration is included in `setup.typoscript`.
 
-## Hinweise
+## Project Structure
 
-- Alle GitLab- und Import-Hinweise wurden entfernt.
-- Das Projekt ist für moderne Headless- und API-Workflows vorbereitet.
+- All local extensions/packages are in the `packages` folder. Require them via `composer req vendor/package:@dev`.
+- `assets` contains all SCSS, JavaScript, images, and fonts, processed by [Vite.js](https://vitejs.dev/) and output to `packages/site-distribution/Resources/Public/`.
 
-## Files and folders
+## NPM Scripts / Vite.js
 
-The folder `packages` contains all your local extension/packages.
-Require these packages simply by using `composer req vendor/package:@dev`
+- Compile SCSS to CSS (`assets/Scss`)
+- Bundle JavaScript (`assets/JavaScript`)
+- Copy images (`assets/Image`) and fonts (`assets/Fonts`) to the public folder of EXT:site-distribution
 
-`assets` contains all scss, javascript, images and fonts which will be processed
-by [Vite.js](https://vitejs.dev/) and stored in `packages/site-distribution/Resources/Public/`.
-
-## Npm Scripts / Vite.js
-
-The frontend toolchain uses NPM and Vite.js with a few loaders to ...
-  * Compile scss to css (`assets/Scss`)
-  * Bundle javascript (`assets/JavaScript`)
-  * Copy images (`assets/Image`) and fonts (`assets/Fonts`) to the Public folder of EXT:site-distribution
-
-Watch for changes in js/scss files:
+Watch for changes in JS/SCSS files:
 ```bash
 ddev npm run watch
 ```
 
-Build JS, CSS for development use (not compressed/optimized):
+Build JS/CSS for development (not minified):
 ```bash
 ddev npm run build:development
 ```
 
-Build JS, CSS for production use:
+Build JS/CSS for production:
 ```bash
 ddev npm run build:production
 ```
 
-## QA / Analysis
+## Quality Assurance
 
 Run PHPStan:
 ```bash
 ddev exec ./vendor/bin/phpstan analyse -c .phpstan.neon --no-progress
 ```
 
-PHP CS Fixer:
+Run PHP CS Fixer:
 ```bash
 ddev exec ./vendor/bin/php-cs-fixer fix --dry-run --diff
 ```
 
-## Deployer
+## Deployment
 
-`deploy.yaml` contains an example configuration for deployer
-(PHP deployment tool). It's recommended to run [deployer](https://deployer.org/)
-in GitLab CI.
-
-Run deployer locally (only for testing):
+`deploy.yaml` contains an example configuration for [Deployer](https://deployer.org/).
+Run deployer locally (for testing):
 ```bash
 ./vendor/bin/dep deploy -vvv staging
 ```
 
 ## Scheduler CronJob
 
-To run a CronJob in ddev the plugin "ddev-cron" is required.
-The add-on is installed during `ddev typo3-init`.
-To install it manually run `ddev get ddev/ddev-cron`.
-In case xdebug is enabled the scheduler CronJob is not executed.
+To run a CronJob in ddev, the plugin "ddev-cron" is required. Install it with:
+```bash
+ddev get ddev/ddev-cron
+```
+If xdebug is enabled, the scheduler CronJob is not executed.
 
 Run the scheduler manually:
 ```bash
 ddev typo3-scheduler # -f or --force to run it while xdebug is enabled
 ```
 
-## External documentation
+## External Documentation
 
-  * TYPO3 - https://docs.typo3.org/
-  * DDEV - https://ddev.readthedocs.io/en/stable/
-    * Vite Add-on - https://github.com/s2b/ddev-vite-sidecar
-  * Vite.js - https://vitejs.dev/
-  * Deployer - https://deployer.org/docs/7.x/basics
+- [TYPO3 Documentation](https://docs.typo3.org/)
+- [DDEV Documentation](https://ddev.readthedocs.io/en/stable/)
+  - [Vite Add-on](https://github.com/s2b/ddev-vite-sidecar)
+- [Vite.js](https://vitejs.dev/)
+- [Deployer](https://deployer.org/docs/7.x/basics)
 
 ## License
 
 GPL-2.0 or later
 
-# Best Practices für MASK-Inhaltselemente
+# Best Practices for MASK Content Elements
 
-- Eigene Templates für Inhaltselemente liegen in `EXT:mask_elements/Resources/Private/Templates/ContentElements/`.
-- Eigene Partials/Layouts für Wiederverwendung und Struktur in `Partials/` und `Layouts/`.
-- TypoScript bindet die Template-RootPaths ein (siehe `mask_elements.typoscript`).
-- Die generierten MASK-Templates im `Mask/Frontend`-Ordner werden nicht angepasst.
-- Die `mask.json` ist die zentrale Definition für Felder, TCA und SQL.
-- Fluid-Templates nutzen semantisches HTML und Barrierefreiheit (z. B. ARIA-Attribute, sinnvolle Überschriften).
-- Migration zu Content Blocks ist durch sprechende Feldnamen und klare Struktur einfach möglich.
+- Custom templates for content elements are in `EXT:mask_elements/Resources/Private/Templates/ContentElements/`.
+- Custom partials/layouts for reuse and structure are in `Partials/` and `Layouts/`.
+- TypoScript includes the template root paths (see `mask_elements.typoscript`).
+- Generated MASK templates in the `Mask/Frontend` folder are not modified.
+- `mask.json` is the central definition for fields, TCA, and SQL.
+- Fluid templates use semantic HTML and accessibility (e.g., ARIA attributes, meaningful headings).
+- Migration to Content Blocks is easy due to clear field names and structure.
 
-Beispiel für ein Teaser-Element siehe `mask.json` und `Templates/ContentElements/Teaser.html`.
+See `mask.json` and `Templates/ContentElements/Teaser.html` for a Teaser element example.
