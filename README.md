@@ -81,8 +81,8 @@ ddev typo3-init
 ## Demo Content & Data Import
 
 - The setup script (`ddev typo3-init`) automatically imports the demo page tree and all demo content elements (MASK & Content Blocks) for a ready-to-use backend and frontend demo.
-- Demo content is inserted via SQL/ddev/mysql and is visible on page id 6 after setup.
-- If you need to re-import demo data, use the provided SQL or rerun the setup script.
+- Demo content is inserted via data.xml and is visible after setup.
+- If you need to re-import, rerun the setup script.
 
 ---
 
@@ -99,7 +99,6 @@ ddev typo3-init
 
 ## Best Practices & Troubleshooting
 
-- **No boilerplate branding:** All code and docs are custom, not a generic starter.
 - **Accessibility:** All templates use semantic HTML and ARIA where needed.
 - **Frontend:** Modern toolchain (Vite, SCSS, JS, Vue.js), see `package.json` for dependencies.
 - **Backend:** Clean TCA, TypoScript, and YAML configs. No field overlap between MASK and Content Blocks.
