@@ -1,8 +1,14 @@
 {
-	"name": "typo3/gitlab-project-template",
-	"description": "TYPO3 CMS Distribution - Gitlab Project Template",
+	"name": "fynnmenk/typo3-v13-introduction",
+	"description": "Modern TYPO3 v13+ demo distribution with Content Blocks, MASK, and automated demo content import. Clean, accessible, and best-practice setup for agencies and freelancers.",
 	"license": "GPL-2.0-or-later",
 	"type": "project",
+	"homepage": "https://github.com/fynnmenk/typo3-v13-introduction",
+	"repository": "https://github.com/fynnmenk/typo3-v13-introduction.git",
+	"authors": [
+		{"name": "Fynn Menk", "email": "your@email.com"}
+	],
+	"keywords": ["typo3", "demo", "content blocks", "mask", "distribution", "proof of concept"],
 	"config": {
 		"allow-plugins": {
 			"typo3/class-alias-loader": true,

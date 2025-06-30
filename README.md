@@ -1,6 +1,16 @@
-# TYPO3 Distribution – Modern Demo & Proof of Concept
+# typo3-v13-introduction
 
-This project is a modern, clean, and accessible TYPO3 v13+ distribution, designed as a proof-of-concept for professional use and as a freelancer reference. It demonstrates best practices for parallel operation of MASK and Content Blocks, a Vue.js frontend, and automated demo content import. No boilerplate branding – all documentation and code are tailored for this project.
+Modern TYPO3 v13+ demo distribution with Content Blocks, MASK, and automated demo content import. Clean, accessible, and best-practice setup for agencies and freelancers.
+
+[![License: GPL-2.0-or-later](https://img.shields.io/badge/License-GPL%202.0%20or%20later-blue.svg)](LICENSE)
+[![TYPO3 v13](https://img.shields.io/badge/TYPO3-v13-orange.svg)](https://typo3.org/)
+
+> **Note:** This repository is prepared for sharing on GitHub. The deployment pipeline is currently **disabled** (see `deploy.yaml.disabled`).
+
+---
+
+Author: [Fynn Menk](https://github.com/fynnmenk)
+Repository: https://github.com/fynnmenk/typo3-v13-introduction
 
 ---
 
