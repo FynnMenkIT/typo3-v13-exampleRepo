@@ -47,3 +47,5 @@ Thumbs.db
 *.swo
 # TYPO3 Install Tool
 /public/typo3/install.php
+# MASK generierte Fallback-Templates ignorieren
+/packages/mask_elements/Resources/Private/Mask/Frontend/
