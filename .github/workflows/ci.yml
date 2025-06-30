@@ -132,3 +132,6 @@ jobs:
           # Beispiel: ./vendor/bin/dep deploy -vvv production
           echo "Bitte aktiviere den Deployer-Befehl und konfiguriere deploy.yaml -> hosts -> production"
           ./vendor/bin/dep --version
+
+  # Die Deploy-Jobs bleiben erhalten, werden aber nur ausgeführt, wenn du sie aktivierst.
+  # Du kannst sie später einfach entfernen oder anpassen.

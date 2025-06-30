@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c986b923af445ec3c5c9c18e52d26069",
+    "content-hash": "ea5a29dabd492f465d885a9ce0f0725f",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -168,6 +168,33 @@
                 "source": "https://github.com/DASPRiD/Enum/tree/1.0.6"
             },
             "time": "2024-08-09T14:30:48+00:00"
+        },
+        {
+            "name": "demo/mask_elements",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "packages/mask_elements",
+                "reference": "6af13603647aa31dcc703f330157d23754fa047b"
+            },
+            "require": {
+                "typo3/cms-core": ">=13.0.0 <14.0.0"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "mask_elements"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vendor\\MaskElements\\": "Classes/"
+                }
+            },
+            "description": "Demo-Extension für MASK-Inhaltselemente (Migration zu Content Blocks)",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "doctrine/annotations",
@@ -813,6 +840,96 @@
             "time": "2025-04-09T20:32:01+00:00"
         },
         {
+            "name": "friendsoftypo3/headless",
+            "version": "v4.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/TYPO3-Headless/headless.git",
+                "reference": "a15e1c8c4773187087bd6da107f1d8fa7423c22c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/TYPO3-Headless/headless/zipball/a15e1c8c4773187087bd6da107f1d8fa7423c22c",
+                "reference": "a15e1c8c4773187087bd6da107f1d8fa7423c22c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "typo3/cms-core": "^12.4 || ^13.4",
+                "typo3/cms-install": "^12.4 || ^13.4"
+            },
+            "conflict": {
+                "typo3/cms-core": "<12.4.21"
+            },
+            "require-dev": {
+                "ergebnis/composer-normalize": "^2.43",
+                "friendsofphp/php-cs-fixer": "^v3",
+                "helmich/typo3-typoscript-lint": "^v3",
+                "justinrainbow/json-schema": "^5",
+                "php-coveralls/php-coveralls": "^2",
+                "phpspec/prophecy-phpunit": "^2",
+                "phpstan/extension-installer": "^1.1",
+                "phpstan/phpstan": "^1.12",
+                "phpunit/phpcov": "^8 || ^9 || ^10",
+                "saschaegerer/phpstan-typo3": "^1.1",
+                "seld/jsonlint": "^1.11",
+                "symfony/yaml": "^6.1 || ^7.1",
+                "typo3/cms-form": "^12.4 || ^13.3",
+                "typo3/coding-standards": "^0.8",
+                "typo3/testing-framework": "^8.0"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "app-dir": ".Build",
+                    "web-dir": ".Build/public",
+                    "extension-key": "headless"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "FriendsOfTYPO3\\Headless\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Tymoteusz Motylewski",
+                    "role": "Head"
+                },
+                {
+                    "name": "Łukasz Uznański",
+                    "role": "Developer"
+                },
+                {
+                    "name": "TYPO3 PWA Initiative",
+                    "email": "extensions@macopedia.pl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This extension provides way to output content from TYPO3 in JSON format.",
+            "keywords": [
+                "headless",
+                "json",
+                "pwa",
+                "typo3"
+            ],
+            "support": {
+                "issues": "https://github.com/TYPO3-Headless/headless/issues",
+                "source": "https://github.com/TYPO3-Headless/headless/tree/v4.6.0"
+            },
+            "funding": [
+                {
+                    "url": "https://buy.stripe.com/bIYcPX1wd9hrawUfZ0",
+                    "type": "custom"
+                }
+            ],
+            "time": "2025-02-21T12:34:07+00:00"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "7.9.3",
             "source": {
@@ -1201,6 +1318,102 @@
                 "source": "https://github.com/lolli42/FineDiff/tree/1.1.1"
             },
             "time": "2024-07-09T14:25:40+00:00"
+        },
+        {
+            "name": "mask/mask",
+            "version": "v9.0.8",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Gernott/mask.git",
+                "reference": "e78cdc05e180963ed0a637dd867b83c1d6bdb4d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Gernott/mask/zipball/e78cdc05e180963ed0a637dd867b83c1d6bdb4d8",
+                "reference": "e78cdc05e180963ed0a637dd867b83c1d6bdb4d8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "php": "^8.1",
+                "typo3/cms-backend": "^13.4 || ^12.4",
+                "typo3/cms-core": "^13.4 || ^12.4",
+                "typo3/cms-fluid": "^13.4 || ^12.4",
+                "typo3/cms-fluid-styled-content": "^13.4 || ^12.4",
+                "typo3/cms-install": "^13.4 || ^12.4"
+            },
+            "replace": {
+                "typo3-ter/mask": "self.version"
+            },
+            "require-dev": {
+                "bnf/phpstan-psr-container": "^1.0",
+                "friendsofphp/php-cs-fixer": "^3.4",
+                "friendsoftypo3/phpstan-typo3": "^0.9.0",
+                "phpstan/phpstan": "^1.4",
+                "phpstan/phpstan-phpunit": "^1.0",
+                "phpunit/phpunit": "^11",
+                "typo3/coding-standards": "0.8.x-dev",
+                "typo3/testing-framework": "^8"
+            },
+            "suggest": {
+                "b13/container": "Allows creating container elements to place your Mask elements into.",
+                "gridelementsteam/gridelements": "Allows creating container elements to place your Mask elements into."
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "web-dir": ".Build/Web",
+                    "extension-key": "mask"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "MASK\\Mask\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "WEBprofil - Gernot Ploiner e.U.",
+                    "email": "office@webprofil.at",
+                    "homepage": "https://www.webprofil.at",
+                    "role": "Developer"
+                },
+                {
+                    "name": "Nikita Hovratov",
+                    "email": "info@nikita-hovratov.de",
+                    "homepage": "https://www.nikita-hovratov.de",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Create your own content elements and page templates. Easy to use, even without programming skills because of the comfortable drag and drop user interface. Stored in structured database tables. Style your frontend with Fluid tags. Ideal, if you want to switch from Templavoila.",
+            "homepage": "https://extensions.typo3.org/extension/mask",
+            "keywords": [
+                "TYPO3 CMS",
+                "contentelements",
+                "mask",
+                "wizard"
+            ],
+            "support": {
+                "chat": "https://typo3.slack.com/archives/C0FD5F6P2",
+                "docs": "https://docs.typo3.org/p/mask/mask/main/en-us/",
+                "issues": "https://github.com/gernott/mask/issues/",
+                "source": "https://github.com/gernott/mask"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/sponsors/nhovratov",
+                    "type": "Nikita Hovratov (Developer)"
+                },
+                {
+                    "url": "https://github.com/sponsors/Gernott",
+                    "type": "WEBprofil - Gernot Ploiner e.U. (Founder)"
+                }
+            ],
+            "time": "2025-05-16T19:45:26+00:00"
         },
         {
             "name": "masterminds/html5",
@@ -8423,6 +8636,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "demo/mask_elements": 20,
         "typo3/coding-standards": 20,
         "typo3/site-distribution": 20
     },

@@ -1,74 +1,48 @@
-# TYPO3 Distribution - GitLab Project Template
+# TYPO3 Headless Projekt
 
-Get going quickly with TYPO3 CMS and GitLab.
+Dieses Projekt basiert auf TYPO3 und ist für die Nutzung als Headless-CMS vorbereitet. Die Ausgabe erfolgt als JSON-API, das Frontend wird mit modernen Frameworks wie Vue.js realisiert.
 
 ## Quickstart
 
-Use the following ddev command to set up the template:
+### Backend (TYPO3, DDEV)
 
-```bash
-ddev typo3-init
-```
-
-**NOTE**
-
-> For the quickstart, you have **[ddev](https://ddev.readthedocs.io/en/stable/)** to
-be installed on your host system. For further details, head over to the **official [documentation](https://ochorocho.gitlab.io/typo3-distribution-docs/)**.
-
-## All commands - manual setup
-
-Configure ddev, install packages and start the ddev instance:
-```bash
+1. DDEV starten und Abhängigkeiten installieren:
+   ```bash
 ddev start
 ddev composer install
+   ```
+2. TYPO3 Setup ausführen:
+   ```bash
 ddev typo3 setup
-```
+   ```
+3. Headless-Extension installieren (bereits enthalten):
+   ```bash
+ddev composer require friendsoftypo3/headless
+   ```
+4. Extension im TYPO3-Backend aktivieren.
+5. Die Headless-Ausgabe ist unter `/?type=1533906440` erreichbar.
 
-Prepare and build frontend:
+### Frontend (Vue.js + Vite)
+
+Das Frontend befindet sich im Ordner `frontend/` und basiert auf Vue 3 + Vite. Starte die Entwicklung mit:
+
 ```bash
-ddev npm install
-ddev npm run build:production
+cd frontend
+npm install
+npm run dev
 ```
 
-Initialize data (page tree and link assets):
-```bash
-ddev typo3 extension:setup
-ddev composer dumpautoload
-```
+Die App lädt Daten direkt aus TYPO3 Headless (`/?type=1533906440`).
 
-Display all your project related information:
-```bash
-ddev describe
-```
+## Headless-Konfiguration
 
-## Mail GUI
+- Die Datei `packages/site-distribution/Configuration/Sets/Main/headless.typoscript` stellt die JSON-Ausgabe bereit.
+- In `setup.typoscript` ist die Headless-Konfiguration bereits eingebunden.
 
-Start the built-in [Mailpit](https://github.com/axllent/mailpit) to access emails sent by TYPO3:
-```bash
-ddev launch -m
-```
+## Hinweise
 
-## Database GUI
-
-To access the database via a web GUI, you can install e.g. [phpmyadmin](https://www.phpmyadmin.net/)
-`ddev get ddev/ddev-phpmyadmin` or [adminer](https://www.adminer.org/de/) `ddev get ddev/ddev-adminer`.
-
-## Use the [DDEV Vite Add-on](https://github.com/s2b/ddev-vite-sidecar)
-
-**NOTE**
-
-> The addon is already available after `ddev typo3-init` has completed.
-
-Install:
-```bash
-ddev get s2b/ddev-vite-sidecar
-ddev restart
-```
-
-Run the Vite dev server:
-```bash
-ddev vite
-```
+- Alle GitLab- und Import-Hinweise wurden entfernt.
+- Das Projekt ist für moderne Headless- und API-Workflows vorbereitet.
 
 ## Files and folders
 
@@ -146,3 +120,15 @@ ddev typo3-scheduler # -f or --force to run it while xdebug is enabled
 ## License
 
 GPL-2.0 or later
+
+# Best Practices für MASK-Inhaltselemente
+
+- Eigene Templates für Inhaltselemente liegen in `EXT:mask_elements/Resources/Private/Templates/ContentElements/`.
+- Eigene Partials/Layouts für Wiederverwendung und Struktur in `Partials/` und `Layouts/`.
+- TypoScript bindet die Template-RootPaths ein (siehe `mask_elements.typoscript`).
+- Die generierten MASK-Templates im `Mask/Frontend`-Ordner werden nicht angepasst.
+- Die `mask.json` ist die zentrale Definition für Felder, TCA und SQL.
+- Fluid-Templates nutzen semantisches HTML und Barrierefreiheit (z. B. ARIA-Attribute, sinnvolle Überschriften).
+- Migration zu Content Blocks ist durch sprechende Feldnamen und klare Struktur einfach möglich.
+
+Beispiel für ein Teaser-Element siehe `mask.json` und `Templates/ContentElements/Teaser.html`.
