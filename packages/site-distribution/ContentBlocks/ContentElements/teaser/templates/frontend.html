@@ -9,5 +9,8 @@
                 {data.bodytext -> f:format.html()}
             </div>
         </f:if>
+        <f:if condition="{data.link.url}">
+            <f:link.typolink parameter="{data.link}" class="c-teaser__link">Read more</f:link.typolink>
+        </f:if>
     </article>
 </f:section>
