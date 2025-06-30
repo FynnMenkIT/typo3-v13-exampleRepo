@@ -1,0 +1,482 @@
+{
+    "version": "8.1.0",
+    "restructuringDone": false,
+    "tables": {
+        "tt_content": {
+            "elements": {
+                "accordion": {
+                    "color": "#388e3c",
+                    "colorOverlay": "#e8f5e9",
+                    "columns": [
+                        "tx_mask_accordion_headline",
+                        "tx_mask_accordion_items"
+                    ],
+                    "description": "Barrierefreies Akkordeon f\u00fcr strukturierte Inhalte, FAQs oder lange Texte. Mit ARIA-Attributen und Keyboard-Navigation.",
+                    "descriptions": [
+                        "\u00dcberschrift f\u00fcr das Akkordeon (wird als <h2> ausgegeben)",
+                        "Akkordeon-Panels (jeweils Titel und Inhalt, RTE)"
+                    ],
+                    "icon": "",
+                    "iconOverlay": "",
+                    "key": "accordion",
+                    "label": "Akkordeon (barrierefrei)",
+                    "labels": [
+                        "\u00dcberschrift",
+                        "Panels"
+                    ],
+                    "shortLabel": "Accordion",
+                    "sorting": 20
+                },
+                "cta": {
+                    "color": "#d32f2f",
+                    "colorOverlay": "#ffebee",
+                    "columns": [
+                        "tx_mask_cta_headline",
+                        "tx_mask_cta_text",
+                        "tx_mask_cta_link",
+                        "tx_mask_cta_aria_label"
+                    ],
+                    "description": "Barrierefreier Call-to-Action mit \u00dcberschrift, Text und Link. Fokus auf semantisches HTML, sinnvolle Linktexte und ARIA-Label.",
+                    "descriptions": [
+                        "\u00dcberschrift f\u00fcr die CTA-Box (wird als <h2> ausgegeben)",
+                        "Text f\u00fcr die CTA-Box (kann HTML enthalten)",
+                        "Link (URL, Ziel, rel)",
+                        "ARIA-Label f\u00fcr den Link (optional, f\u00fcr Screenreader)"
+                    ],
+                    "icon": "content-link",
+                    "iconOverlay": "",
+                    "key": "cta",
+                    "label": "Call-to-Action (barrierefrei)",
+                    "labels": [
+                        "\u00dcberschrift",
+                        "Text",
+                        "Link",
+                        "ARIA-Label"
+                    ],
+                    "shortLabel": "CTA",
+                    "sorting": 30
+                },
+                "statsbox": {
+                    "color": "#fbc02d",
+                    "colorOverlay": "#fffde7",
+                    "columns": [
+                        "tx_mask_statsbox_headline",
+                        "tx_mask_statsbox_items"
+                    ],
+                    "description": "Barrierefreie Statistik-Box f\u00fcr wichtige Kennzahlen, Fakten oder Meilensteine. Semantische Listen, ARIA-Attribute, SEO-optimiert. Jedes Item mit Zahl, Label und optionaler Beschreibung f\u00fcr Screenreader.",
+                    "descriptions": [
+                        "\u00dcberschrift f\u00fcr die Statistik-Box (wird als <h2> ausgegeben, wichtig f\u00fcr SEO und Orientierung)",
+                        "Statistik-Items: Zahl (wird als <span> mit ARIA-Label ausgegeben), Label (sichtbar und f\u00fcr Screenreader), optionale Beschreibung (nur f\u00fcr Screenreader, z.B. Details oder Kontext)"
+                    ],
+                    "icon": "",
+                    "iconOverlay": "",
+                    "key": "statsbox",
+                    "label": "Statistik-Box (barrierefrei)",
+                    "labels": [
+                        "\u00dcberschrift",
+                        "Statistiken"
+                    ],
+                    "shortLabel": "Stats",
+                    "sorting": 40
+                },
+                "teaser": {
+                    "color": "#1976d2",
+                    "colorOverlay": "#e3f2fd",
+                    "columns": [
+                        "tx_mask_headline",
+                        "tx_mask_bodytext"
+                    ],
+                    "description": "Ein aufmerksamkeitsstarker Teaser mit \u00dcberschrift und Text. Ideal f\u00fcr Einstiege, Hinweise oder Aktionsfl\u00e4chen. Barrierefrei nutzbar.",
+                    "descriptions": [
+                        "\u00dcberschrift f\u00fcr den Teaser (wird als <h2> ausgegeben!)",
+                        "Textinhalt des Teasers (kann HTML enthalten)"
+                    ],
+                    "icon": "content-text",
+                    "iconOverlay": "",
+                    "key": "teaser",
+                    "label": "Teaser (barrierefrei)",
+                    "labels": [
+                        "\u00dcberschrift",
+                        "Text"
+                    ],
+                    "shortLabel": "Teaser",
+                    "sorting": 10
+                }
+            },
+            "sql": {
+                "tx_mask_accordion_headline": {
+                    "tt_content": {
+                        "tx_mask_accordion_headline": "varchar(255) DEFAULT '' NOT NULL"
+                    }
+                },
+                "tx_mask_accordion_items": {
+                    "tt_content": {
+                        "tx_mask_accordion_items": "mediumtext"
+                    }
+                },
+                "tx_mask_bodytext": {
+                    "tt_content": {
+                        "tx_mask_bodytext": "mediumtext"
+                    }
+                },
+                "tx_mask_cta_aria_label": {
+                    "tt_content": {
+                        "tx_mask_cta_aria_label": "varchar(255) DEFAULT '' NOT NULL"
+                    }
+                },
+                "tx_mask_cta_headline": {
+                    "tt_content": {
+                        "tx_mask_cta_headline": "varchar(255) DEFAULT '' NOT NULL"
+                    }
+                },
+                "tx_mask_cta_link": {
+                    "tt_content": {
+                        "tx_mask_cta_link": "varchar(2048) DEFAULT '' NOT NULL"
+                    }
+                },
+                "tx_mask_cta_text": {
+                    "tt_content": {
+                        "tx_mask_cta_text": "mediumtext"
+                    }
+                },
+                "tx_mask_headline": {
+                    "tt_content": {
+                        "tx_mask_headline": "varchar(255) DEFAULT '' NOT NULL"
+                    }
+                },
+                "tx_mask_statsbox_headline": {
+                    "tt_content": {
+                        "tx_mask_statsbox_headline": "varchar(255) DEFAULT '' NOT NULL"
+                    }
+                },
+                "tx_mask_statsbox_items": {
+                    "tt_content": {
+                        "tx_mask_statsbox_items": "mediumtext"
+                    }
+                }
+            },
+            "tca": {
+                "tx_mask_accordion_headline": {
+                    "config": {
+                        "eval": "trim",
+                        "nullable": 0,
+                        "required": 1,
+                        "type": "input"
+                    },
+                    "fullKey": "tx_mask_accordion_headline",
+                    "key": "accordion_headline",
+                    "type": "string"
+                },
+                "tx_mask_accordion_items": {
+                    "config": {
+                        "appearance": {
+                            "collapseAll": 1,
+                            "enabledControls": {
+                                "delete": 1,
+                                "dragdrop": 1,
+                                "hide": 1,
+                                "info": 1,
+                                "localize": 1,
+                                "new": 1,
+                                "sort": 1
+                            },
+                            "expandSingle": 1,
+                            "levelLinksPosition": "top",
+                            "showAllLocalizationLink": 1,
+                            "showNewRecordLink": 1,
+                            "showPossibleLocalizationRecords": 1,
+                            "useSortable": 1
+                        },
+                        "foreign_field": "parentid",
+                        "foreign_sortby": "sorting",
+                        "foreign_table": "--inlinetable--",
+                        "foreign_table_field": "parenttable",
+                        "maxitems": 20,
+                        "type": "inline"
+                    },
+                    "fullKey": "tx_mask_accordion_items",
+                    "key": "accordion_items",
+                    "type": "inline"
+                },
+                "tx_mask_bodytext": {
+                    "config": {
+                        "enableRichtext": true,
+                        "nullable": 0,
+                        "richtextConfiguration": "default",
+                        "type": "text"
+                    },
+                    "description": "Textinhalt des Teasers (kann HTML enthalten)",
+                    "fullKey": "tx_mask_bodytext",
+                    "key": "bodytext",
+                    "label": "Text",
+                    "type": "text"
+                },
+                "tx_mask_cta_aria_label": {
+                    "config": {
+                        "eval": "trim",
+                        "nullable": 1,
+                        "type": "input"
+                    },
+                    "description": "ARIA-Label f\u00fcr den Link (optional, f\u00fcr Screenreader)",
+                    "fullKey": "tx_mask_cta_aria_label",
+                    "key": "aria_label",
+                    "label": "ARIA-Label",
+                    "type": "string"
+                },
+                "tx_mask_cta_headline": {
+                    "config": {
+                        "eval": "trim",
+                        "nullable": 0,
+                        "required": 1,
+                        "type": "input"
+                    },
+                    "description": "\u00dcberschrift f\u00fcr die CTA-Box (wird als <h2> ausgegeben)",
+                    "fullKey": "tx_mask_cta_headline",
+                    "key": "headline",
+                    "label": "\u00dcberschrift",
+                    "type": "string"
+                },
+                "tx_mask_cta_link": {
+                    "config": {
+                        "eval": "trim",
+                        "required": 1,
+                        "type": "link"
+                    },
+                    "description": "Link (URL, Ziel, rel)",
+                    "fullKey": "tx_mask_cta_link",
+                    "key": "link",
+                    "label": "Link",
+                    "type": "string"
+                },
+                "tx_mask_cta_text": {
+                    "config": {
+                        "enableRichtext": true,
+                        "nullable": 0,
+                        "richtextConfiguration": "default",
+                        "type": "text"
+                    },
+                    "description": "Text f\u00fcr die CTA-Box (kann HTML enthalten)",
+                    "fullKey": "tx_mask_cta_text",
+                    "key": "text",
+                    "label": "Text",
+                    "type": "text"
+                },
+                "tx_mask_headline": {
+                    "config": {
+                        "eval": "trim",
+                        "nullable": 0,
+                        "required": 1,
+                        "type": "input"
+                    },
+                    "description": "\u00dcberschrift f\u00fcr den Teaser (wird als <h2> ausgegeben!)",
+                    "fullKey": "tx_mask_headline",
+                    "key": "headline",
+                    "label": "\u00dcberschrift",
+                    "type": "string"
+                },
+                "tx_mask_statsbox_headline": {
+                    "config": {
+                        "eval": "trim",
+                        "nullable": 0,
+                        "required": 1,
+                        "type": "input"
+                    },
+                    "fullKey": "tx_mask_statsbox_headline",
+                    "key": "statsbox_headline",
+                    "type": "string"
+                },
+                "tx_mask_statsbox_item_description": {
+                    "config": {
+                        "nullable": 1,
+                        "type": "text"
+                    },
+                    "description": "Optionale Beschreibung f\u00fcr Screenreader oder Details",
+                    "fullKey": "tx_mask_statsbox_item_description",
+                    "key": "description",
+                    "label": "Beschreibung",
+                    "type": "text"
+                },
+                "tx_mask_statsbox_item_label": {
+                    "config": {
+                        "eval": "trim",
+                        "nullable": 0,
+                        "required": 1,
+                        "type": "input"
+                    },
+                    "description": "Bezeichnung der Kennzahl (sichtbar und f\u00fcr Screenreader, wichtig f\u00fcr Kontext und SEO). Beispiel: 'Zufriedene Kunden', 'Jahre Erfahrung', 'Projekte abgeschlossen'. Das Label sollte kurz, eindeutig und selbsterkl\u00e4rend sein.",
+                    "fullKey": "tx_mask_statsbox_item_label",
+                    "key": "label",
+                    "label": "Label",
+                    "type": "string"
+                },
+                "tx_mask_statsbox_item_number": {
+                    "config": {
+                        "eval": "trim",
+                        "nullable": 0,
+                        "required": 1,
+                        "type": "input"
+                    },
+                    "description": "Kennzahl oder Wert (wird prominent ausgegeben, wichtig f\u00fcr Screenreader und SEO). Bitte eine m\u00f6glichst sprechende, verst\u00e4ndliche Zahl oder Kennzahl angeben. Beispiel: 100%, 42, 1.000.000 etc.",
+                    "fullKey": "tx_mask_statsbox_item_number",
+                    "key": "number",
+                    "label": "Zahl",
+                    "type": "string"
+                },
+                "tx_mask_statsbox_items": {
+                    "config": {
+                        "appearance": {
+                            "enabledControls": {
+                                "delete": 1,
+                                "dragdrop": 1,
+                                "hide": 1,
+                                "info": 1,
+                                "localize": 1,
+                                "new": 1,
+                                "sort": 1
+                            },
+                            "levelLinksPosition": "top",
+                            "showAllLocalizationLink": 1,
+                            "showNewRecordLink": 1,
+                            "showPossibleLocalizationRecords": 1,
+                            "useSortable": 1
+                        },
+                        "foreign_field": "parentid",
+                        "foreign_sortby": "sorting",
+                        "foreign_table": "--inlinetable--",
+                        "foreign_table_field": "parenttable",
+                        "type": "inline"
+                    },
+                    "fullKey": "tx_mask_statsbox_items",
+                    "key": "statsbox_items",
+                    "type": "inline"
+                }
+            }
+        },
+        "tx_mask_accordion_items": {
+            "sql": {
+                "tx_mask_bodytext": {
+                    "tx_mask_accordion_items": {
+                        "tx_mask_bodytext": "mediumtext"
+                    }
+                },
+                "tx_mask_description": {
+                    "tx_mask_accordion_items": {
+                        "tx_mask_description": "mediumtext"
+                    }
+                },
+                "tx_mask_title": {
+                    "tx_mask_accordion_items": {
+                        "tx_mask_title": "varchar(255) DEFAULT '' NOT NULL"
+                    }
+                }
+            },
+            "tca": {
+                "tx_mask_bodytext": {
+                    "config": {
+                        "nullable": 0,
+                        "type": "text",
+                        "wrap": "virtual"
+                    },
+                    "description": "Inhalt des Panels (wird beim \u00d6ffnen angezeigt, kann HTML enthalten, RTE aktiviert).",
+                    "fullKey": "tx_mask_bodytext",
+                    "inlineParent": "tx_mask_accordion_items",
+                    "key": "bodytext",
+                    "label": "Inhalt",
+                    "order": 2,
+                    "type": "text"
+                },
+                "tx_mask_description": {
+                    "config": {
+                        "nullable": 1,
+                        "type": "text",
+                        "wrap": "virtual"
+                    },
+                    "description": "Optionale Beschreibung f\u00fcr Screenreader oder Details (wird nicht sichtbar ausgegeben, nur f\u00fcr Barrierefreiheit).",
+                    "fullKey": "tx_mask_description",
+                    "inlineParent": "tx_mask_accordion_items",
+                    "key": "description",
+                    "label": "Beschreibung (Screenreader)",
+                    "order": 3,
+                    "type": "text"
+                },
+                "tx_mask_title": {
+                    "config": {
+                        "eval": "trim",
+                        "nullable": 0,
+                        "required": 1,
+                        "type": "input"
+                    },
+                    "description": "Titel des Panels (wird als Button ausgegeben, wichtig f\u00fcr Barrierefreiheit und Orientierung). Beispiel: 'Was ist Barrierefreiheit?', 'Mehr erfahren', 'Details anzeigen'.",
+                    "fullKey": "tx_mask_title",
+                    "inlineParent": "tx_mask_accordion_items",
+                    "key": "title",
+                    "label": "Titel",
+                    "order": 1,
+                    "type": "string"
+                }
+            }
+        },
+        "tx_mask_statsbox_item": [],
+        "tx_mask_statsbox_items": {
+            "sql": {
+                "tx_mask_description": {
+                    "tx_mask_statsbox_items": {
+                        "tx_mask_description": "mediumtext"
+                    }
+                },
+                "tx_mask_label": {
+                    "tx_mask_statsbox_items": {
+                        "tx_mask_label": "varchar(255) DEFAULT '' NOT NULL"
+                    }
+                },
+                "tx_mask_number": {
+                    "tx_mask_statsbox_items": {
+                        "tx_mask_number": "int(11) DEFAULT '0' NOT NULL"
+                    }
+                }
+            },
+            "tca": {
+                "tx_mask_description": {
+                    "config": {
+                        "nullable": 0,
+                        "type": "text",
+                        "wrap": "virtual"
+                    },
+                    "description": "Optionale Beschreibung, wird nur f\u00fcr Screenreader ausgegeben (z.B. Details, Kontext, Barrierefreiheit). Hier k\u00f6nnen zus\u00e4tzliche Informationen, Erkl\u00e4rungen oder Kontext f\u00fcr Menschen mit Screenreader hinterlegt werden. Beispiel: 'Stand: 2025, Quelle: Eigene Erhebung'.",
+                    "fullKey": "tx_mask_description",
+                    "inlineParent": "tx_mask_statsbox_items",
+                    "key": "description",
+                    "label": "Beschreibung (Screenreader)",
+                    "order": 3,
+                    "type": "text"
+                },
+                "tx_mask_label": {
+                    "config": {
+                        "nullable": 0,
+                        "type": "input"
+                    },
+                    "description": "Bezeichnung der Kennzahl (sichtbar und f\u00fcr Screenreader, wichtig f\u00fcr Kontext und SEO). Beispiel: 'Zufriedene Kunden', 'Jahre Erfahrung', 'Projekte abgeschlossen'. Das Label sollte kurz, eindeutig und selbsterkl\u00e4rend sein.",
+                    "fullKey": "tx_mask_label",
+                    "inlineParent": "tx_mask_statsbox_items",
+                    "key": "label",
+                    "label": "Label",
+                    "order": 2,
+                    "type": "string"
+                },
+                "tx_mask_number": {
+                    "config": {
+                        "nullable": 0,
+                        "type": "number"
+                    },
+                    "description": "Kennzahl oder Wert (wird prominent ausgegeben, wichtig f\u00fcr Screenreader und SEO). Bitte eine m\u00f6glichst sprechende, verst\u00e4ndliche Zahl oder Kennzahl angeben. Beispiel: 100%, 42, 1.000.000 etc.",
+                    "fullKey": "tx_mask_number",
+                    "inlineParent": "tx_mask_statsbox_items",
+                    "key": "number",
+                    "label": "Zahl\/Kennzahl",
+                    "order": 1,
+                    "type": "integer"
+                }
+            }
+        }
+    }
+}

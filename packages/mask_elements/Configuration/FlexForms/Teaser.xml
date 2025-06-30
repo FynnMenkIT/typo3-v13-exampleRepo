@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<T3DataStructure>
+  <ROOT>
+    <TCEforms>
+      <sheetTitle>Teaser</sheetTitle>
+    </TCEforms>
+    <type>array</type>
+    <el>
+      <headline>
+        <TCEforms>
+          <label>Überschrift</label>
+          <config>
+            <type>input</type>
+            <size>48</size>
+          </config>
+        </TCEforms>
+      </headline>
+      <bodytext>
+        <TCEforms>
+          <label>Text</label>
+          <config>
+            <type>text</type>
+            <rows>5</rows>
+            <cols>48</cols>
+          </config>
+        </TCEforms>
+      </bodytext>
+    </el>
+  </ROOT>
+</T3DataStructure>

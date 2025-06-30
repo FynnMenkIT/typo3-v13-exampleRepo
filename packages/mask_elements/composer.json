@@ -1,0 +1,18 @@
+{
+  "name": "demo/mask_elements",
+  "type": "typo3-cms-extension",
+  "description": "Demo-Extension für MASK-Inhaltselemente (Migration zu Content Blocks)",
+  "require": {
+    "typo3/cms-core": ">=13.0.0 <14.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Vendor\\MaskElements\\": "Classes/"
+    }
+  },
+  "extra": {
+    "typo3/cms": {
+      "extension-key": "mask_elements"
+    }
+  }
+}

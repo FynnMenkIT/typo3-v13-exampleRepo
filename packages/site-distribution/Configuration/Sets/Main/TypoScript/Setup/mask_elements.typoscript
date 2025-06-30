@@ -1,0 +1,10 @@
+# Zentrale MASK-ContentElement-Konfiguration mit eigenen Pfaden
+lib.maskContentElement = FLUIDTEMPLATE
+lib.maskContentElement {
+  dataProcessing {
+    100 = MASK\Mask\DataProcessing\MaskProcessor
+  }
+  templateRootPaths.10 = EXT:mask_elements/Resources/Private/Templates/ContentElements/
+  partialRootPaths.10 = EXT:mask_elements/Resources/Private/Partials/ContentElements/
+  layoutRootPaths.10 = EXT:mask_elements/Resources/Private/Layouts/
+}
