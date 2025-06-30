@@ -8,13 +8,14 @@ dependencies:
   - typo3/seo-sitemap
   - typo3/felogin
   - typo3/form
+  - friendsoftypo3/headless-mixed
 errorHandling:
   -
     errorCode: 404
     errorHandler: Page
     errorContentSource: 't3://page?uid=4'
 frontendBase: ''
-headless: 1
+headless: 2
 languages:
   -
     title: Deutsch
